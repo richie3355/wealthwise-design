@@ -7,6 +7,7 @@ import Index from "./pages/Index";
 import Portfolio from "./pages/Portfolio";
 import Transactions from "./pages/Transactions";
 import Services from "./pages/Services";
+import FloatingChatbot from "./components/FloatingChatbot";
 
 const queryClient = new QueryClient();
 
@@ -22,6 +23,7 @@ const App = () => (
           <Route path="/transactions" element={<Transactions />} />
           <Route path="/services" element={<Services />} />
         </Routes>
+        <FloatingChatbot />
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
