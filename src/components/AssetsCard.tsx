@@ -1,11 +1,25 @@
 import { motion } from "framer-motion";
-import { Wallet, TrendingUp, Building, Coins } from "lucide-react";
+import { Wallet, TrendingUp, Building, Coins, Briefcase, Bank, CreditCard, DollarSign } from "lucide-react";
+import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 const assets = [
   { icon: Wallet, label: "Cash", value: 25000, growth: 2.3 },
-  { icon: TrendingUp, label: "Stocks", value: 150000, growth: 5.7 },
-  { icon: Building, label: "Real Estate", value: 450000, growth: 3.1 },
   { icon: Coins, label: "Crypto", value: 15000, growth: -2.5 },
+  { icon: TrendingUp, label: "Public Investments", value: 150000, growth: 5.7 },
+  { icon: Briefcase, label: "Company Equity", value: 300000, growth: 4.2 },
+  { icon: Bank, label: "Fund Investments", value: 200000, growth: 3.8 },
+  { icon: Building, label: "Real Estate", value: 450000, growth: 3.1 },
+  { icon: CreditCard, label: "Liabilities", value: -50000, growth: -1.2 },
+];
+
+const assetTabs = [
+  { id: "cash", label: "Cash" },
+  { id: "crypto", label: "Crypto" },
+  { id: "public", label: "Public Investments" },
+  { id: "equity", label: "Company Equity" },
+  { id: "fund", label: "Fund Investments" },
+  { id: "real-estate", label: "Real Estate" },
+  { id: "liabilities", label: "Liabilities" },
 ];
 
 const AssetsCard = () => {
@@ -22,6 +36,21 @@ const AssetsCard = () => {
           View All
         </button>
       </div>
+
+      <Tabs defaultValue="cash" className="w-full mb-6">
+        <TabsList className="grid grid-cols-4 gap-2 bg-transparent h-auto p-0 overflow-x-auto">
+          {assetTabs.map(({ id, label }) => (
+            <TabsTrigger
+              key={id}
+              value={id}
+              className="data-[state=active]:bg-blue-50 data-[state=active]:text-blue-500 py-2 px-3 rounded-xl bg-gray-50 border-none text-xs whitespace-nowrap"
+            >
+              {label}
+            </TabsTrigger>
+          ))}
+        </TabsList>
+      </Tabs>
+
       <div className="space-y-4">
         {assets.map(({ icon: Icon, label, value, growth }) => (
           <motion.div
@@ -37,7 +66,7 @@ const AssetsCard = () => {
               </div>
               <div>
                 <h3 className="font-medium">{label}</h3>
-                <p className="text-sm text-gray-500">${value.toLocaleString()}</p>
+                <p className="text-sm text-gray-500">${Math.abs(value).toLocaleString()}</p>
               </div>
             </div>
             <span className={`text-sm font-medium ${growth >= 0 ? 'text-green-500' : 'text-red-500'}`}>
