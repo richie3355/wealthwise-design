@@ -12,23 +12,28 @@ const monthlyData = [
 ];
 
 const MonthlySpendingChart = () => {
+  const getBarColor = (entry: any): string => {
+    return entry.spending > entry.budget ? "#ef4444" : "#3b82f6";
+  };
+
   return (
-    <Card>
-      <CardHeader>
-        <CardTitle className="text-lg font-medium">Monthly Spending</CardTitle>
+    <Card className="mb-4">
+      <CardHeader className="pb-2">
+        <CardTitle className="text-base font-medium">Monthly Spending</CardTitle>
       </CardHeader>
-      <CardContent>
-        <div className="h-[200px] w-full">
+      <CardContent className="p-4">
+        <div className="h-[180px] w-full">
           <ResponsiveContainer width="100%" height="100%">
             <BarChart data={monthlyData} margin={{ top: 5, right: 5, bottom: 5, left: 0 }}>
               <XAxis 
                 dataKey="month" 
-                tick={{ fontSize: 12 }}
+                tick={{ fontSize: 11 }}
+                tickMargin={5}
               />
               <YAxis 
                 tickFormatter={(value) => `$${value}`}
-                width={45}
-                tick={{ fontSize: 12 }}
+                width={40}
+                tick={{ fontSize: 11 }}
               />
               <Tooltip 
                 formatter={(value: number) => [`$${value}`, "Amount"]}
@@ -36,14 +41,14 @@ const MonthlySpendingChart = () => {
               />
               <Bar 
                 dataKey="spending" 
-                fill={(data: any) => data.spending > data.budget ? "#ef4444" : "#3b82f6"}
+                fill={getBarColor}
                 radius={[4, 4, 0, 0]}
               />
             </BarChart>
           </ResponsiveContainer>
         </div>
-        <div className="mt-4 flex items-center gap-2 text-sm text-red-500">
-          <AlertCircle className="h-4 w-4" />
+        <div className="mt-2 flex items-center gap-1.5 text-xs text-red-500">
+          <AlertCircle className="h-3 w-3" />
           Red bars indicate months where spending exceeded budget
         </div>
       </CardContent>

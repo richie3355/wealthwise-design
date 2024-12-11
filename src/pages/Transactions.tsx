@@ -6,8 +6,8 @@ import Navigation from "@/components/Navigation";
 
 const Transactions = () => {
   return (
-    <div className="container pb-20 pt-4 space-y-4">
-      <h1 className="text-2xl font-bold">Transactions</h1>
+    <div className="container max-w-5xl pb-16 pt-3 space-y-3">
+      <h1 className="text-xl font-bold">Transactions</h1>
       
       <SpendingSummary />
       

@@ -36,34 +36,34 @@ const transactions = [
 const TransactionHistory = () => {
   return (
     <Card>
-      <CardHeader>
-        <CardTitle className="text-lg font-medium">Transaction History</CardTitle>
+      <CardHeader className="pb-2">
+        <CardTitle className="text-base font-medium">Transaction History</CardTitle>
       </CardHeader>
-      <CardContent>
+      <CardContent className="p-3">
         <div className="overflow-x-auto">
           <Table>
             <TableHeader>
               <TableRow>
-                <TableHead>Date</TableHead>
-                <TableHead>Description</TableHead>
-                <TableHead>Type</TableHead>
-                <TableHead className="text-right">Amount</TableHead>
+                <TableHead className="text-xs">Date</TableHead>
+                <TableHead className="text-xs">Description</TableHead>
+                <TableHead className="text-xs">Type</TableHead>
+                <TableHead className="text-right text-xs">Amount</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
               {transactions.map((transaction) => (
                 <TableRow key={transaction.id}>
-                  <TableCell>{new Date(transaction.date).toLocaleDateString()}</TableCell>
-                  <TableCell>{transaction.description}</TableCell>
-                  <TableCell>
+                  <TableCell className="text-xs py-2">{new Date(transaction.date).toLocaleDateString()}</TableCell>
+                  <TableCell className="text-xs py-2">{transaction.description}</TableCell>
+                  <TableCell className="text-xs py-2">
                     {transaction.type === "credit" ? (
-                      <CreditCard className="h-4 w-4 text-blue-500 inline mr-2" />
+                      <CreditCard className="h-3 w-3 text-blue-500 inline mr-1" />
                     ) : (
-                      <Wallet className="h-4 w-4 text-green-500 inline mr-2" />
+                      <Wallet className="h-3 w-3 text-green-500 inline mr-1" />
                     )}
                     {transaction.type}
                   </TableCell>
-                  <TableCell className={`text-right ${
+                  <TableCell className={`text-right text-xs py-2 ${
                     transaction.amount < 0 ? "text-red-500" : "text-green-500"
                   }`}>
                     ${Math.abs(transaction.amount).toFixed(2)}
