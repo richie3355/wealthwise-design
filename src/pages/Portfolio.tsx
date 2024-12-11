@@ -3,6 +3,7 @@ import NetWorthCard from "@/components/NetWorthCard";
 import InvestmentsCard from "@/components/portfolio/InvestmentsCard";
 import StockPerformanceCard from "@/components/portfolio/StockPerformanceCard";
 import GoalsCard from "@/components/portfolio/GoalsCard";
+import ProjectionCard from "@/components/portfolio/ProjectionCard";
 import Navigation from "@/components/Navigation";
 
 const Portfolio = () => {
@@ -27,6 +28,7 @@ const Portfolio = () => {
 
         <div className="space-y-4">
           <NetWorthCard amount={640485} currency="USD" />
+          <ProjectionCard />
           <InvestmentsCard />
           <StockPerformanceCard />
           <GoalsCard />

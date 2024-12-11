@@ -23,15 +23,15 @@ const InvestmentsCard = () => {
         </CardTitle>
       </CardHeader>
       <CardContent>
-        <div className="h-[200px] w-full">
+        <div className="h-[180px] w-full">
           <ResponsiveContainer width="100%" height="100%">
             <PieChart>
               <Pie
                 data={data}
                 cx="50%"
                 cy="50%"
-                innerRadius={60}
-                outerRadius={80}
+                innerRadius={40}
+                outerRadius={60}
                 paddingAngle={5}
                 dataKey="value"
               >
@@ -42,7 +42,12 @@ const InvestmentsCard = () => {
               <Tooltip 
                 formatter={(value: number) => `$${value.toLocaleString()}`}
               />
-              <Legend />
+              <Legend 
+                verticalAlign="bottom" 
+                height={36}
+                iconSize={8}
+                wrapperStyle={{ fontSize: '10px' }}
+              />
             </PieChart>
           </ResponsiveContainer>
         </div>

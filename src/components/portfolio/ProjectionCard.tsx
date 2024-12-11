@@ -21,18 +21,23 @@ const ProjectionCard = () => {
         <CardTitle className="text-lg font-medium">
           <div className="flex items-center gap-2">
             <TrendingUp className="h-5 w-5 text-blue-500" />
-            Projection
+            Projected Net Worth by 2034
           </div>
         </CardTitle>
       </CardHeader>
       <CardContent>
-        <div className="h-[200px] w-full">
+        <div className="h-[180px] w-full">
           <ResponsiveContainer width="100%" height="100%">
             <LineChart data={data}>
-              <XAxis dataKey="month" />
+              <XAxis 
+                dataKey="month" 
+                tick={{ fontSize: 10 }}
+                interval="preserveStartEnd"
+              />
               <YAxis 
                 tickFormatter={(value) => `$${(value / 1000)}k`}
-                width={60}
+                width={45}
+                tick={{ fontSize: 10 }}
               />
               <Tooltip 
                 formatter={(value: number) => [`$${value.toLocaleString()}`, "Value"]}

@@ -22,19 +22,28 @@ const StockPerformanceCard = () => {
         </CardTitle>
       </CardHeader>
       <CardContent>
-        <div className="h-[200px] w-full">
+        <div className="h-[180px] w-full">
           <ResponsiveContainer width="100%" height="100%">
-            <BarChart data={data}>
-              <XAxis dataKey="stock" />
+            <BarChart data={data} margin={{ top: 5, right: 5, bottom: 5, left: 0 }}>
+              <XAxis 
+                dataKey="stock" 
+                tick={{ fontSize: 10 }}
+              />
               <YAxis 
                 tickFormatter={(value) => `${value}%`}
-                width={40}
+                width={35}
+                tick={{ fontSize: 10 }}
               />
               <Tooltip 
                 formatter={(value: number) => [`${value}%`, "Growth"]}
                 labelFormatter={(label) => `Stock: ${label}`}
               />
-              <Bar dataKey="growth" fill="#3b82f6" radius={[4, 4, 0, 0]} />
+              <Bar 
+                dataKey="growth" 
+                fill="#3b82f6" 
+                radius={[4, 4, 0, 0]}
+                maxBarSize={35}
+              />
             </BarChart>
           </ResponsiveContainer>
         </div>
