@@ -2,17 +2,28 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer } from "recharts";
 import { TrendingUp } from "lucide-react";
 
-const data = [
-  { month: "Jan", value: 540000 },
-  { month: "Feb", value: 565000 },
-  { month: "Mar", value: 580000 },
-  { month: "Apr", value: 595000 },
-  { month: "May", value: 610000 },
-  { month: "Jun", value: 640485 },
-  { month: "Jul", value: 660000 },
-  { month: "Aug", value: 685000 },
-  { month: "Sep", value: 710000 },
-];
+// Calculate yearly projections with a 7% average annual growth rate
+const calculateProjections = () => {
+  const startYear = 2024;
+  const endYear = 2034;
+  const initialValue = 640485; // Current net worth
+  const annualGrowthRate = 0.07; // 7% annual growth
+
+  const projections = [];
+  let currentValue = initialValue;
+
+  for (let year = startYear; year <= endYear; year++) {
+    projections.push({
+      year: year.toString(),
+      value: Math.round(currentValue)
+    });
+    currentValue *= (1 + annualGrowthRate);
+  }
+
+  return projections;
+};
+
+const data = calculateProjections();
 
 const ProjectionCard = () => {
   return (
@@ -30,25 +41,26 @@ const ProjectionCard = () => {
           <ResponsiveContainer width="100%" height="100%">
             <LineChart data={data}>
               <XAxis 
-                dataKey="month" 
+                dataKey="year" 
                 tick={{ fontSize: 10 }}
                 interval="preserveStartEnd"
               />
               <YAxis 
-                tickFormatter={(value) => `$${(value / 1000)}k`}
-                width={45}
+                tickFormatter={(value) => `$${(value / 1000000).toFixed(1)}M`}
+                width={55}
                 tick={{ fontSize: 10 }}
               />
               <Tooltip 
-                formatter={(value: number) => [`$${value.toLocaleString()}`, "Value"]}
-                labelFormatter={(label) => `Month: ${label}`}
+                formatter={(value: number) => [`$${value.toLocaleString()}`, "Projected Value"]}
+                labelFormatter={(label) => `Year: ${label}`}
               />
               <Line
                 type="monotone"
                 dataKey="value"
                 stroke="#3b82f6"
                 strokeWidth={2}
-                dot={false}
+                dot={{ r: 3 }}
+                activeDot={{ r: 5 }}
               />
             </LineChart>
           </ResponsiveContainer>
