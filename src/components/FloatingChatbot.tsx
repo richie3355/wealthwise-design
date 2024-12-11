@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { MessageCircle, X, MinusCircle } from 'lucide-react';
+import { MessageCircle, X } from 'lucide-react';
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Button } from "@/components/ui/button";
@@ -71,7 +71,7 @@ const FloatingChatbot = () => {
                 size="icon"
                 onClick={() => setIsMinimized(!isMinimized)}
               >
-                {isMinimized ? <MessageCircle className="h-4 w-4" /> : <MinusCircle className="h-4 w-4" />}
+                {isMinimized ? <MessageCircle className="h-4 w-4" /> : <X className="h-4 w-4" />}
               </Button>
             </div>
           </SheetHeader>
