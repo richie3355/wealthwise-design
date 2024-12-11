@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import NetWorthCard from "../components/NetWorthCard";
 import AssetsCard from "../components/AssetsCard";
+import InsuranceCard from "../components/InsuranceCard";
 import Navigation from "../components/Navigation";
 import { motion } from "framer-motion";
 
@@ -30,6 +31,7 @@ const Index = () => {
 
         <NetWorthCard amount={640485} currency="USD" />
         <AssetsCard />
+        <InsuranceCard />
       </motion.div>
       <Navigation />
     </div>
