@@ -33,7 +33,7 @@ const GoalsCard = () => {
                 </div>
                 <Progress 
                   value={progress} 
-                  className="h-2 bg-blue-100 [&>[role=progressbar]]:bg-[#3b82f6]" 
+                  className="h-2" 
                 />
               </div>
             );
