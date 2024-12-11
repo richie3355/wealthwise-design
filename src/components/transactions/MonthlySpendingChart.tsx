@@ -10,7 +10,16 @@ const monthlyData = [
   { month: "Jun", spending: 2850, budget: 3000 },
 ];
 
+interface DataPoint {
+  spending: number;
+  budget: number;
+}
+
 const MonthlySpendingChart = () => {
+  const getBarFill = (entry: DataPoint) => {
+    return entry.spending > entry.budget ? "#ef4444" : "#3b82f6";
+  };
+
   return (
     <Card className="mb-4">
       <CardHeader className="pb-2">
@@ -36,7 +45,7 @@ const MonthlySpendingChart = () => {
               />
               <Bar 
                 dataKey="spending" 
-                fill={(data: any) => data.spending > data.budget ? "#ef4444" : "#3b82f6"}
+                fill={getBarFill}
                 radius={[4, 4, 0, 0]}
               />
             </BarChart>
