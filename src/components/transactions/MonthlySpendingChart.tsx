@@ -1,5 +1,5 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer } from "recharts";
+import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, Cell } from "recharts";
 
 const monthlyData = [
   { month: "Jan", spending: 2800, budget: 3000 },
@@ -10,16 +10,7 @@ const monthlyData = [
   { month: "Jun", spending: 2850, budget: 3000 },
 ];
 
-interface DataPoint {
-  spending: number;
-  budget: number;
-}
-
 const MonthlySpendingChart = () => {
-  const getBarFill = (entry: DataPoint) => {
-    return entry.spending > entry.budget ? "#ef4444" : "#3b82f6";
-  };
-
   return (
     <Card className="mb-4">
       <CardHeader className="pb-2">
@@ -43,11 +34,14 @@ const MonthlySpendingChart = () => {
                 formatter={(value: number) => [`$${value}`, "Amount"]}
                 labelFormatter={(label) => `Month: ${label}`}
               />
-              <Bar 
-                dataKey="spending" 
-                fill={getBarFill}
-                radius={[4, 4, 0, 0]}
-              />
+              <Bar dataKey="spending" radius={[4, 4, 0, 0]}>
+                {monthlyData.map((entry, index) => (
+                  <Cell 
+                    key={`cell-${index}`}
+                    fill={entry.spending > entry.budget ? "#ef4444" : "#3b82f6"}
+                  />
+                ))}
+              </Bar>
             </BarChart>
           </ResponsiveContainer>
         </div>
