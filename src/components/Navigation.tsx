@@ -13,10 +13,10 @@ const Navigation = () => {
   ];
 
   const moreOptions = [
-    { icon: Rss, label: "Feed", onClick: () => console.log("Feed clicked") },
-    { icon: Trophy, label: "Gamification", onClick: () => console.log("Gamification clicked") },
-    { icon: Vault, label: "Vault", onClick: () => console.log("Vault clicked") },
-    { icon: Bell, label: "Notifications", onClick: () => console.log("Notifications clicked") }
+    { icon: Rss, label: "Feed", path: "/feed" },
+    { icon: Trophy, label: "Gamification", path: "/gamification" },
+    { icon: Vault, label: "Vault", path: "/vault" },
+    { icon: Bell, label: "Notifications", path: "/notifications" }
   ];
 
   return (
@@ -47,15 +47,17 @@ const Navigation = () => {
               <SheetTitle>More Options</SheetTitle>
             </SheetHeader>
             <div className="mt-6 space-y-4">
-              {moreOptions.map(({ icon: Icon, label, onClick }) => (
-                <button
+              {moreOptions.map(({ icon: Icon, label, path }) => (
+                <Link
                   key={label}
-                  onClick={onClick}
-                  className="w-full flex items-center gap-3 p-3 text-left text-sm hover:bg-gray-100 rounded-lg transition-colors"
+                  to={path}
+                  className={`w-full flex items-center gap-3 p-3 text-left text-sm hover:bg-gray-100 rounded-lg transition-colors ${
+                    location.pathname === path ? "text-primary bg-primary/10" : ""
+                  }`}
                 >
                   <Icon className="w-5 h-5" />
                   <span>{label}</span>
-                </button>
+                </Link>
               ))}
             </div>
           </SheetContent>
