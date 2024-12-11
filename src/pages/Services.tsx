@@ -1,4 +1,4 @@
-import { Shield, CreditCard, Banknote, BarChart2 } from "lucide-react";
+import { Shield, BarChart2 } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
@@ -9,18 +9,6 @@ const Services = () => {
       title: "Insurance Plans",
       description: "Protect what matters most with our comprehensive insurance solutions",
       items: ["Life Insurance", "Health Insurance", "Property Insurance", "Vehicle Insurance"]
-    },
-    {
-      icon: Banknote,
-      title: "Banking Solutions",
-      description: "Financial products tailored to your needs",
-      items: ["Personal Loans", "Home Loans", "Business Loans", "Savings Accounts"]
-    },
-    {
-      icon: CreditCard,
-      title: "Credit Cards",
-      description: "Exclusive credit card offers with great rewards",
-      items: ["Rewards Card", "Travel Card", "Business Card", "Student Card"]
     },
     {
       icon: BarChart2,
