@@ -5,6 +5,7 @@ import StockPerformanceCard from "@/components/portfolio/StockPerformanceCard";
 import GoalsCard from "@/components/portfolio/GoalsCard";
 import ProjectionCard from "@/components/portfolio/ProjectionCard";
 import Navigation from "@/components/Navigation";
+import FloatingChatbot from "@/components/FloatingChatbot";
 
 const Portfolio = () => {
   return (
@@ -35,6 +36,7 @@ const Portfolio = () => {
         </div>
       </motion.div>
       <Navigation />
+      <FloatingChatbot />
     </div>
   );
 };
