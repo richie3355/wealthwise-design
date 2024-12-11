@@ -31,7 +31,7 @@ const GoalsCard = () => {
                     ${goal.current.toLocaleString()} / ${goal.target.toLocaleString()}
                   </span>
                 </div>
-                <Progress value={progress} className="h-2" />
+                <Progress value={progress} className="h-2 bg-blue-100 [&>[role=progressbar]]:bg-blue-500" />
               </div>
             );
           })}
