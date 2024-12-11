@@ -15,33 +15,51 @@ const Services = () => {
         title: "European Insurance Solutions",
         plans: [
           {
-            name: "Term Life Insurance",
-            description: "Coverage up to €1.5M with optional critical illness protection",
+            name: "Allianz Term Life Protect+",
+            description: "Comprehensive life coverage with flexible terms and additional benefits",
             features: [
-              "Flexible terms from 10-30 years",
-              "Critical illness cover optional",
-              "Death benefit paid tax-free",
-              "Fixed monthly premiums"
+              "Coverage from €100,000 to €2,000,000",
+              "Terms available: 10, 15, 20, 25, or 30 years",
+              "Terminal illness benefit included",
+              "Optional critical illness cover up to €500,000",
+              "Guaranteed premiums starting from €15/month",
+              "24/7 virtual doctor consultations included"
             ]
           },
           {
-            name: "Private Health Insurance",
-            description: "Comprehensive healthcare coverage across EU countries",
+            name: "AXA Global Health Elite",
+            description: "Premium international health coverage across Europe and worldwide",
             features: [
-              "Access to private hospitals",
-              "No waiting period for most treatments",
-              "Coverage in all EU countries",
-              "Digital health services included"
+              "100% coverage in private hospitals across EU",
+              "Direct billing with 95% of European hospitals",
+              "Dental and vision coverage included",
+              "Mental health support & wellness programs",
+              "Maternity coverage up to €50,000",
+              "Annual health screening & preventive care"
             ]
           },
           {
-            name: "Property & Contents",
-            description: "Complete protection for your home and belongings",
+            name: "Zurich Property Shield",
+            description: "Complete protection for your home and valuable assets",
             features: [
-              "Buildings coverage up to €1M",
-              "Contents insurance up to €100K",
-              "Natural disaster protection",
-              "24/7 emergency assistance"
+              "Buildings coverage up to €2M",
+              "Contents insurance up to €250,000",
+              "Jewelry & art coverage up to €100,000",
+              "Cyber protection against digital threats",
+              "Emergency home assistance 24/7",
+              "Natural disaster coverage included"
+            ]
+          },
+          {
+            name: "ERGO Vehicle Complete",
+            description: "Comprehensive auto insurance with premium services",
+            features: [
+              "Full comprehensive coverage (Kasko)",
+              "New vehicle replacement within 2 years",
+              "Roadside assistance across Europe",
+              "No claims bonus protection",
+              "Electric vehicle charging coverage",
+              "Courtesy car for up to 21 days"
             ]
           }
         ]
@@ -51,38 +69,56 @@ const Services = () => {
       icon: BarChart2,
       title: "Investment Tools",
       description: "Grow your wealth with smart investment options",
-      items: ["Stocks & ETFs", "Mutual Funds", "Retirement Planning", "Portfolio Management"],
+      items: ["Stocks & ETFs", "Sustainable Investments", "Retirement Planning", "Wealth Management"],
       details: {
         title: "European Investment Products",
         plans: [
           {
-            name: "EU Stock & ETF Portfolio",
-            description: "Diversified investment in European markets",
+            name: "BlackRock EU Equity Portfolio",
+            description: "Diversified investment in leading European companies",
             features: [
-              "Access to all EU stock exchanges",
-              "Commission-free ETF trading",
-              "Automatic dividend reinvestment",
-              "Real-time market data"
+              "Access to EURO STOXX 50 companies",
+              "Dividend reinvestment option",
+              "Minimum investment: €1,000",
+              "Annual management fee: 0.20%",
+              "Real-time portfolio tracking",
+              "Quarterly rebalancing included"
             ]
           },
           {
-            name: "Sustainable Investment Funds",
-            description: "ESG-focused investment solutions",
+            name: "Amundi Green Future Fund",
+            description: "Sustainable and ESG-focused investment solutions",
             features: [
-              "Green energy sector funds",
-              "Social responsibility screening",
-              "Low carbon footprint options",
-              "Impact investment tracking"
+              "100% renewable energy investments",
+              "Carbon-neutral portfolio companies",
+              "EU taxonomy-aligned investments",
+              "Quarterly ESG impact reports",
+              "Minimum investment: €500",
+              "Annual management fee: 0.35%"
             ]
           },
           {
-            name: "European Pension Planning",
-            description: "Long-term retirement solutions",
+            name: "Vanguard European Retirement 2050",
+            description: "Long-term retirement planning with automatic rebalancing",
             features: [
-              "Tax-efficient pension products",
-              "Cross-border pension transfer",
-              "Multiple currency options",
-              "Regular saving plans"
+              "Target date retirement strategy",
+              "Automatic risk adjustment over time",
+              "Mix of stocks, bonds, and cash",
+              "Monthly investment from €50",
+              "Tax-efficient structure",
+              "Free retirement planning tools"
+            ]
+          },
+          {
+            name: "UBS Wealth Management Premium",
+            description: "Personalized wealth management for high-net-worth individuals",
+            features: [
+              "Dedicated wealth advisor",
+              "Custom portfolio construction",
+              "Alternative investments access",
+              "Estate planning services",
+              "Minimum investment: €500,000",
+              "Quarterly portfolio review"
             ]
           }
         ]
