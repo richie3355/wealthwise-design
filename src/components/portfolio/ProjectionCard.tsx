@@ -2,28 +2,30 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer } from "recharts";
 import { TrendingUp } from "lucide-react";
 
-// Calculate yearly projections with a 7% average annual growth rate
-const calculateProjections = () => {
-  const startYear = 2024;
-  const endYear = 2034;
-  const initialValue = 640485; // Current net worth
-  const annualGrowthRate = 0.07; // 7% annual growth
+// Calculate historical growth data (last 12 months)
+const calculateHistoricalGrowth = () => {
+  const initialValue = 500000; // Value from 12 months ago
+  const monthlyGrowthRate = 0.02; // Average 2% monthly growth
+  const months = [
+    'Apr 2023', 'May 2023', 'Jun 2023', 'Jul 2023', 'Aug 2023', 'Sep 2023',
+    'Oct 2023', 'Nov 2023', 'Dec 2023', 'Jan 2024', 'Feb 2024', 'Mar 2024'
+  ];
 
-  const projections = [];
+  const historicalData = [];
   let currentValue = initialValue;
 
-  for (let year = startYear; year <= endYear; year++) {
-    projections.push({
-      year: year.toString(),
+  for (let i = 0; i < months.length; i++) {
+    historicalData.push({
+      month: months[i],
       value: Math.round(currentValue)
     });
-    currentValue *= (1 + annualGrowthRate);
+    currentValue *= (1 + monthlyGrowthRate);
   }
 
-  return projections;
+  return historicalData;
 };
 
-const data = calculateProjections();
+const data = calculateHistoricalGrowth();
 
 const ProjectionCard = () => {
   return (
@@ -32,7 +34,7 @@ const ProjectionCard = () => {
         <CardTitle className="text-lg font-medium">
           <div className="flex items-center gap-2">
             <TrendingUp className="h-5 w-5 text-blue-500" />
-            Projected Net Worth by 2034
+            Net Worth Growth (Last 12 Months)
           </div>
         </CardTitle>
       </CardHeader>
@@ -41,7 +43,7 @@ const ProjectionCard = () => {
           <ResponsiveContainer width="100%" height="100%">
             <LineChart data={data}>
               <XAxis 
-                dataKey="year" 
+                dataKey="month" 
                 tick={{ fontSize: 10 }}
                 interval="preserveStartEnd"
               />
@@ -51,8 +53,8 @@ const ProjectionCard = () => {
                 tick={{ fontSize: 10 }}
               />
               <Tooltip 
-                formatter={(value: number) => [`$${value.toLocaleString()}`, "Projected Value"]}
-                labelFormatter={(label) => `Year: ${label}`}
+                formatter={(value: number) => [`$${value.toLocaleString()}`, "Net Worth"]}
+                labelFormatter={(label) => `${label}`}
               />
               <Line
                 type="monotone"
