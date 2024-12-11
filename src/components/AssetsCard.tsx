@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Wallet, TrendingUp, Building, Coins, Briefcase, Bank, CreditCard, DollarSign } from "lucide-react";
+import { Wallet, TrendingUp, Building, Coins, Briefcase, Landmark, CreditCard, DollarSign } from "lucide-react";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 const assets = [
@@ -7,7 +7,7 @@ const assets = [
   { icon: Coins, label: "Crypto", value: 15000, growth: -2.5 },
   { icon: TrendingUp, label: "Public Investments", value: 150000, growth: 5.7 },
   { icon: Briefcase, label: "Company Equity", value: 300000, growth: 4.2 },
-  { icon: Bank, label: "Fund Investments", value: 200000, growth: 3.8 },
+  { icon: Landmark, label: "Fund Investments", value: 200000, growth: 3.8 },
   { icon: Building, label: "Real Estate", value: 450000, growth: 3.1 },
   { icon: CreditCard, label: "Liabilities", value: -50000, growth: -1.2 },
 ];
