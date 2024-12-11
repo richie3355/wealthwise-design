@@ -35,7 +35,7 @@ const transactions = [
 
 const TransactionHistory = () => {
   return (
-    <Card>
+    <Card className="mb-8">
       <CardHeader className="pb-2">
         <CardTitle className="text-base font-medium">Transaction History</CardTitle>
       </CardHeader>
