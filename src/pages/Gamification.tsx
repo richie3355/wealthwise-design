@@ -1,6 +1,6 @@
 import { Card } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
-import { ArrowLeft, Trophy, Target, Wallet, Trending } from "lucide-react";
+import { ArrowLeft, Trophy, Target, Wallet, TrendingUp } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
 
@@ -19,7 +19,7 @@ const Gamification = () => {
       title: "Investment Pioneer",
       progress: 40,
       description: "Create a diversified portfolio",
-      icon: Trending,
+      icon: TrendingUp,
       reward: "Free stock analysis report"
     },
     {
