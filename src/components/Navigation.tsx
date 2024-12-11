@@ -1,9 +1,11 @@
 import { Home, BarChart2, History, Settings, MoreHorizontal, Rss, Trophy, Vault, Bell } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
+import { useState, useEffect } from "react";
 
 const Navigation = () => {
   const location = useLocation();
+  const [isMoreOpen, setIsMoreOpen] = useState(false);
   
   const navItems = [
     { icon: Home, label: "Home", path: "/" },
@@ -18,6 +20,12 @@ const Navigation = () => {
     { icon: Vault, label: "Vault", path: "/vault" },
     { icon: Bell, label: "Notifications", path: "/notifications" }
   ];
+
+  // Keep sheet open if we're on a more options page
+  useEffect(() => {
+    const isMorePage = moreOptions.some(option => option.path === location.pathname);
+    setIsMoreOpen(isMorePage);
+  }, [location.pathname]);
 
   return (
     <nav className="fixed bottom-0 left-0 right-0 bg-white/80 backdrop-blur-lg border-t border-gray-200 px-6 py-2 z-50">
@@ -37,7 +45,7 @@ const Navigation = () => {
           </Link>
         ))}
         
-        <Sheet>
+        <Sheet open={isMoreOpen} onOpenChange={setIsMoreOpen}>
           <SheetTrigger className="flex flex-col items-center p-2 text-gray-400 hover:text-gray-600">
             <MoreHorizontal className="w-5 h-5" />
             <span className="text-xs mt-1">More</span>
