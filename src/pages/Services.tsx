@@ -1,7 +1,8 @@
-import { Shield, BarChart2, ChevronRight } from "lucide-react";
+import { Shield, BarChart2, ChevronRight, ArrowLeft } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
+import { Button } from "@/components/ui/button";
 
 const Services = () => {
   const services = [
@@ -123,25 +124,32 @@ const Services = () => {
                   </CardContent>
                 </Card>
               </SheetTrigger>
-              <SheetContent className="overflow-y-auto">
-                <SheetHeader>
-                  <SheetTitle>{service.details.title}</SheetTitle>
-                </SheetHeader>
-                <div className="mt-6">
-                  {service.details.plans.map((plan, idx) => (
-                    <div key={idx} className="mb-6 p-4 bg-gray-50 rounded-lg">
-                      <h3 className="font-semibold text-lg mb-2">{plan.name}</h3>
-                      <p className="text-sm text-gray-600 mb-3">{plan.description}</p>
-                      <ul className="space-y-2">
-                        {plan.features.map((feature, fidx) => (
-                          <li key={fidx} className="text-sm flex items-start gap-2">
-                            <div className="h-1.5 w-1.5 rounded-full bg-blue-500 mt-2" />
-                            {feature}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  ))}
+              <SheetContent side="right" className="w-full sm:max-w-none p-0">
+                <div className="h-full overflow-y-auto">
+                  <div className="sticky top-0 z-10 bg-white border-b p-4 flex items-center gap-2">
+                    <SheetTrigger asChild>
+                      <Button variant="ghost" size="icon">
+                        <ArrowLeft className="h-5 w-5" />
+                      </Button>
+                    </SheetTrigger>
+                    <SheetTitle className="text-xl">{service.details.title}</SheetTitle>
+                  </div>
+                  <div className="p-6">
+                    {service.details.plans.map((plan, idx) => (
+                      <div key={idx} className="mb-6 p-4 bg-gray-50 rounded-lg">
+                        <h3 className="font-semibold text-lg mb-2">{plan.name}</h3>
+                        <p className="text-sm text-gray-600 mb-3">{plan.description}</p>
+                        <ul className="space-y-2">
+                          {plan.features.map((feature, fidx) => (
+                            <li key={fidx} className="text-sm flex items-start gap-2">
+                              <div className="h-1.5 w-1.5 rounded-full bg-blue-500 mt-2" />
+                              {feature}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </SheetContent>
             </Sheet>
