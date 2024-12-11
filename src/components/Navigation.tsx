@@ -1,5 +1,6 @@
-import { Home, BarChart2, History, Settings, User } from "lucide-react";
+import { Home, BarChart2, History, Settings, MoreHorizontal, Rss, Trophy, Vault, Bell } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
+import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 
 const Navigation = () => {
   const location = useLocation();
@@ -8,8 +9,14 @@ const Navigation = () => {
     { icon: Home, label: "Home", path: "/" },
     { icon: BarChart2, label: "Portfolio", path: "/portfolio" },
     { icon: History, label: "Transactions", path: "/transactions" },
-    { icon: Settings, label: "Services", path: "/services" },
-    { icon: User, label: "Profile", path: "/profile" }
+    { icon: Settings, label: "Services", path: "/services" }
+  ];
+
+  const moreOptions = [
+    { icon: Rss, label: "Feed", onClick: () => console.log("Feed clicked") },
+    { icon: Trophy, label: "Gamification", onClick: () => console.log("Gamification clicked") },
+    { icon: Vault, label: "Vault", onClick: () => console.log("Vault clicked") },
+    { icon: Bell, label: "Notifications", onClick: () => console.log("Notifications clicked") }
   ];
 
   return (
@@ -29,6 +36,30 @@ const Navigation = () => {
             <span className="text-xs mt-1">{label}</span>
           </Link>
         ))}
+        
+        <Sheet>
+          <SheetTrigger className="flex flex-col items-center p-2 text-gray-400 hover:text-gray-600">
+            <MoreHorizontal className="w-5 h-5" />
+            <span className="text-xs mt-1">More</span>
+          </SheetTrigger>
+          <SheetContent side="right" className="w-[300px]">
+            <SheetHeader>
+              <SheetTitle>More Options</SheetTitle>
+            </SheetHeader>
+            <div className="mt-6 space-y-4">
+              {moreOptions.map(({ icon: Icon, label, onClick }) => (
+                <button
+                  key={label}
+                  onClick={onClick}
+                  className="w-full flex items-center gap-3 p-3 text-left text-sm hover:bg-gray-100 rounded-lg transition-colors"
+                >
+                  <Icon className="w-5 h-5" />
+                  <span>{label}</span>
+                </button>
+              ))}
+            </div>
+          </SheetContent>
+        </Sheet>
       </div>
     </nav>
   );
