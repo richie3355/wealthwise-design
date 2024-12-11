@@ -7,6 +7,10 @@ import Index from "./pages/Index";
 import Portfolio from "./pages/Portfolio";
 import Transactions from "./pages/Transactions";
 import Services from "./pages/Services";
+import Feed from "./pages/Feed";
+import Gamification from "./pages/Gamification";
+import Vault from "./pages/Vault";
+import Notifications from "./pages/Notifications";
 import FloatingChatbot from "./components/FloatingChatbot";
 
 const queryClient = new QueryClient();
@@ -22,6 +26,10 @@ const App = () => (
           <Route path="/portfolio" element={<Portfolio />} />
           <Route path="/transactions" element={<Transactions />} />
           <Route path="/services" element={<Services />} />
+          <Route path="/feed" element={<Feed />} />
+          <Route path="/gamification" element={<Gamification />} />
+          <Route path="/vault" element={<Vault />} />
+          <Route path="/notifications" element={<Notifications />} />
         </Routes>
         <FloatingChatbot />
       </BrowserRouter>
