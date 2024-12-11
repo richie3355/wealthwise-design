@@ -1,6 +1,5 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer } from "recharts";
-import { AlertCircle } from "lucide-react";
 
 const monthlyData = [
   { month: "Jan", spending: 2800, budget: 3000 },
@@ -12,10 +11,6 @@ const monthlyData = [
 ];
 
 const MonthlySpendingChart = () => {
-  const getBarColor = (entry: any): string => {
-    return entry.spending > entry.budget ? "#ef4444" : "#3b82f6";
-  };
-
   return (
     <Card className="mb-4">
       <CardHeader className="pb-2">
@@ -41,15 +36,11 @@ const MonthlySpendingChart = () => {
               />
               <Bar 
                 dataKey="spending" 
-                fill={getBarColor}
+                fill={(data: any) => data.spending > data.budget ? "#ef4444" : "#3b82f6"}
                 radius={[4, 4, 0, 0]}
               />
             </BarChart>
           </ResponsiveContainer>
-        </div>
-        <div className="mt-2 flex items-center gap-1.5 text-xs text-red-500">
-          <AlertCircle className="h-3 w-3" />
-          Red bars indicate months where spending exceeded budget
         </div>
       </CardContent>
     </Card>

@@ -46,7 +46,7 @@ const TransactionHistory = () => {
               <TableRow>
                 <TableHead className="text-xs">Date</TableHead>
                 <TableHead className="text-xs">Description</TableHead>
-                <TableHead className="text-xs">Type</TableHead>
+                <TableHead className="text-xs w-32">Type</TableHead>
                 <TableHead className="text-right text-xs">Amount</TableHead>
               </TableRow>
             </TableHeader>
@@ -56,12 +56,14 @@ const TransactionHistory = () => {
                   <TableCell className="text-xs py-2">{new Date(transaction.date).toLocaleDateString()}</TableCell>
                   <TableCell className="text-xs py-2">{transaction.description}</TableCell>
                   <TableCell className="text-xs py-2">
-                    {transaction.type === "credit" ? (
-                      <CreditCard className="h-3 w-3 text-blue-500 inline mr-1" />
-                    ) : (
-                      <Wallet className="h-3 w-3 text-green-500 inline mr-1" />
-                    )}
-                    {transaction.type}
+                    <div className="flex items-center gap-1">
+                      {transaction.type === "credit" ? (
+                        <CreditCard className="h-3 w-3 text-blue-500" />
+                      ) : (
+                        <Wallet className="h-3 w-3 text-green-500" />
+                      )}
+                      <span>{transaction.type}</span>
+                    </div>
                   </TableCell>
                   <TableCell className={`text-right text-xs py-2 ${
                     transaction.amount < 0 ? "text-red-500" : "text-green-500"
